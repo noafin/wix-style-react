@@ -1,7 +1,8 @@
 import 'regenerator-runtime/runtime';
-/*eslint no-duplicate-imports: 0*/
-import {protractorTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
-import {protractorUniTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
+import {
+  protractorTestkitFactoryCreator,
+  protractorUniTestkitFactoryCreator
+} from 'wix-ui-test-utils/protractor';
 
 // here for historical reasons, should probably deprecate it
 export {
