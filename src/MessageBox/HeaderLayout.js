@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import CloseButton from '../CloseButton';
-import styles from './HeaderLayout.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import CloseButton from '../CloseButton'
+import styles from './HeaderLayout.scss'
 
 const HeaderLayout = ({ title, onCancel, theme, closeButton }) => {
   return (
@@ -16,24 +16,24 @@ const HeaderLayout = ({ title, onCancel, theme, closeButton }) => {
       {closeButton ? (
         <CloseButton
           dataHook="header-close-button"
-          size="large"
+          size="medium"
           onClick={onCancel}
         />
       ) : null}
     </div>
-  );
-};
+  )
+}
 
 HeaderLayout.defaultProps = {
   theme: 'blue',
-  closeButton: true,
-};
+  closeButton: true
+}
 
 HeaderLayout.propTypes = {
   title: PropTypes.node,
   onCancel: PropTypes.func,
   closeButton: PropTypes.bool,
-  theme: PropTypes.oneOf(['red', 'green', 'blue', 'lightGreen']),
-};
+  theme: PropTypes.oneOf(['red', 'green', 'blue', 'lightGreen'])
+}
 
-export default HeaderLayout;
+export default HeaderLayout

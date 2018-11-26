@@ -1,43 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styles from './Tag.scss';
-import CloseButton from '../CloseButton';
-import WixComponent from '../BaseComponents/WixComponent';
-import Text from '../Text';
-import noop from 'lodash/noop';
-import deprecationLog from '../utils/deprecationLog';
-import { dataHooks } from './Tag.helpers';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import styles from './Tag.scss'
+import CloseButton from '../CloseButton'
+import WixComponent from '../BaseComponents/WixComponent'
+import Text from '../Text'
+import noop from 'lodash/noop'
+import deprecationLog from '../utils/deprecationLog'
+import { dataHooks } from './Tag.helpers'
 
-const useOldMarginsDeprecationMessage = `You're using the <Tag/> component with margins which are incorrect. Pass 'useOldMargins={false}' prop in order to remove them. They will be removed in the next major version`;
+const useOldMarginsDeprecationMessage = `You're using the <Tag/> component with margins which are incorrect. Pass 'useOldMargins={false}' prop in order to remove them. They will be removed in the next major version`
 
 const tagToTextSize = {
   tiny: 'tiny',
   small: 'small',
   medium: 'small',
-  large: 'medium',
-};
+  large: 'medium'
+}
 
 /**
  * A Tag component
  */
 class Tag extends WixComponent {
-  static displayName = 'Tag';
+  static displayName = 'Tag'
 
   componentDidMount() {
-    super.componentDidMount();
+    super.componentDidMount()
     if (this.props.useOldMargins) {
-      deprecationLog(useOldMarginsDeprecationMessage);
+      deprecationLog(useOldMarginsDeprecationMessage)
     }
   }
 
   _renderThumb() {
-    const { thumb } = this.props;
-    return thumb ? <span className={styles.thumb}>{thumb}</span> : null;
+    const { thumb } = this.props
+    return thumb ? <span className={styles.thumb}>{thumb}</span> : null
   }
 
   _renderText() {
-    const { size, wrap, children } = this.props;
+    const { size, wrap, children } = this.props
 
     return (
       <Text
@@ -48,31 +48,31 @@ class Tag extends WixComponent {
       >
         {children}
       </Text>
-    );
+    )
   }
 
   _renderRemoveButton() {
-    const { removable, disabled, size } = this.props;
+    const { removable, disabled, size } = this.props
     if (removable && !disabled) {
       return (
         <CloseButton
-          size={size === 'large' ? 'large' : 'small'}
-          theme="close-dark"
+          size={size === 'large' ? 'medium' : 'small'}
+          skin="dark"
           dataHook={dataHooks.removeButton}
           className={styles.removeButton}
           onClick={this._handleRemoveClick}
         />
-      );
+      )
     } else {
-      return null;
+      return null
     }
   }
 
   _handleRemoveClick = event => {
-    const { onRemove, id } = this.props;
-    event.stopPropagation();
-    onRemove(id);
-  };
+    const { onRemove, id } = this.props
+    event.stopPropagation()
+    onRemove(id)
+  }
 
   _getClassName() {
     const {
@@ -83,8 +83,8 @@ class Tag extends WixComponent {
       theme,
       useOldMargins,
       className,
-      onClick,
-    } = this.props;
+      onClick
+    } = this.props
     return classNames(
       styles.root,
       className,
@@ -95,13 +95,13 @@ class Tag extends WixComponent {
         [styles.withRemoveButton]: removable && !disabled,
         [styles.withThumb]: thumb,
         [styles.disabled]: disabled,
-        [styles.clickable]: onClick !== noop,
-      },
-    );
+        [styles.clickable]: onClick !== noop
+      }
+    )
   }
 
   render() {
-    const { id, onClick, maxWidth } = this.props;
+    const { id, onClick, maxWidth } = this.props
 
     return (
       <span
@@ -114,7 +114,7 @@ class Tag extends WixComponent {
         {this._renderText()}
         {this._renderRemoveButton()}
       </span>
-    );
+    )
   }
 }
 
@@ -155,8 +155,8 @@ Tag.propTypes = {
   wrap: PropTypes.bool,
 
   /* Standard className which has preference over any other intrinsic classes  */
-  className: PropTypes.string,
-};
+  className: PropTypes.string
+}
 
 Tag.defaultProps = {
   onClick: noop,
@@ -165,7 +165,7 @@ Tag.defaultProps = {
   removable: true,
   theme: 'standard',
   wrap: false,
-  useOldMargins: true,
-};
+  useOldMargins: true
+}
 
-export default Tag;
+export default Tag

@@ -1,46 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-import WixComponent from '../BaseComponents/WixComponent';
-import Text from '../Text';
-import Button from '../Button';
-import CloseButton from '../CloseButton';
+import WixComponent from '../BaseComponents/WixComponent'
+import Text from '../Text'
+import Button from '../Button'
+import CloseButton from '../CloseButton'
 
-import styles from './styles.scss';
+import styles from './styles.scss'
 
 export const HELPER_APPEARANCE = {
   warning: styles.warning,
   standard: styles.standard,
   danger: styles.danger,
   success: styles.success,
-  premium: styles.premium,
-};
+  premium: styles.premium
+}
 
 /**
  * Used in pages where you need to explain or mention things about the content or actions
  */
 class SectionHelper extends WixComponent {
   render() {
-    const { showCloseButton, onClose } = this.props;
+    const { showCloseButton, onClose } = this.props
 
     return (
       <div
         className={classnames(
           styles.root,
-          HELPER_APPEARANCE[this.props.appearance],
+          HELPER_APPEARANCE[this.props.appearance]
         )}
       >
         {showCloseButton && onClose && (
           <div
             className={classnames(styles.close, {
-              [styles.closeWithTitle]: this.props.title,
+              [styles.closeWithTitle]: this.props.title
             })}
           >
             <CloseButton
               dataHook="sectionhelper-close-btn"
-              size="large"
-              theme="close-dark"
+              size="medium"
+              skin="dark"
               onClick={this.props.onClose}
             />
           </div>
@@ -70,11 +70,11 @@ class SectionHelper extends WixComponent {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-SectionHelper.displayName = 'SectionHelper';
+SectionHelper.displayName = 'SectionHelper'
 
 SectionHelper.propTypes = {
   /** Sets the look and feel of the component */
@@ -96,12 +96,12 @@ SectionHelper.propTypes = {
   actionText: PropTypes.string,
 
   /** Children to render */
-  children: PropTypes.node,
-};
+  children: PropTypes.node
+}
 
 SectionHelper.defaultProps = {
   showCloseButton: true,
-  appearance: 'warning',
-};
+  appearance: 'warning'
+}
 
-export default SectionHelper;
+export default SectionHelper
