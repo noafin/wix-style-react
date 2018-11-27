@@ -4,7 +4,7 @@ import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import Popover from './Popover';
 import popoverDriverFactory from './Popover.driver';
 
-describe.skip('Popover', () => {
+describe('Popover', () => {
   const createDriver = createDriverFactory(popoverDriverFactory);
 
   it('should render', () => {
@@ -53,6 +53,7 @@ describe.skip('Popover', () => {
     createDriver(
       <Popover>
         <div>wut wut?</div>
+        <Popover.Content>I am the content!</Popover.Content>
       </Popover>,
     );
 
