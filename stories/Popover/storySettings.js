@@ -1,5 +1,8 @@
+import {Category} from '../storiesHierarchy';
+
 export const storySettings = {
-  kind: 'Components',
+  kind: Category.COMPONENTS,
+  category: Category.COMPONENTS,
   storyName: 'Popover',
   dataHook: 'storybook-popover'
 };
