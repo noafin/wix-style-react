@@ -54,6 +54,9 @@ export const pageHeaderTestkitFactory = protractorTestkitFactoryCreator(
   pageHeaderDriverFactory
 );
 
+import popoverDriverFactory from '../src/Popover/Popover.driver.protractor';
+export const popoverTestkitFactory = protractorTestkitFactoryCreator(popoverDriverFactory);
+
 import dataTableDriverFactory from '../src/DataTable/DataTable.protractor.driver';
 export const dataTableTestkitFactory = protractorTestkitFactoryCreator(
   dataTableDriverFactory
