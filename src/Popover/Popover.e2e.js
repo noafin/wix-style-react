@@ -33,7 +33,7 @@ describe('Popover', () => {
   });
 
   eyes.it(`with DropdownLayout example`, async () => {
-    const driver = createDriver('story-popper-dropdown-layout');
+    const driver = await createDriver('story-popover-dropdown-layout');
     await driver.click();
   });
 
