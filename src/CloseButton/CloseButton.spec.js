@@ -10,13 +10,13 @@ describe('CloseButton', () => {
   });
 
   describe('Icon', () => {
-    it('when given small should have size <Close/>', () => {
+    it('when given small or none should have size <Close/>', () => {
       const wrapper = shallow(<CloseButton size="small" />);
       expect(wrapper.props().children).toEqual(<Close />);
     });
 
-    it('when given medium or none should have size <CloseLarge />', () => {
-      const wrapper = shallow(<CloseButton />);
+    it('when given medium should have size <CloseLarge />', () => {
+      const wrapper = shallow(<CloseButton size="medium" />);
       expect(wrapper.props().children).toEqual(<CloseLarge />);
     });
   });
