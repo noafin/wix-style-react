@@ -8,7 +8,7 @@ import ExamplesSizes from '!raw-loader!./ExamplesSizes';
 const controlledWidth = {
   height: 'auto',
   width: '100%',
-  display: 'flex'
+  display: 'flex',
 };
 
 const halfColumn = {
@@ -16,7 +16,7 @@ const halfColumn = {
   flexDirection: 'column',
   padding: '10px',
   width: '48%',
-  lineHeight: '1.6'
+  lineHeight: '1.6',
 };
 
 const Container = ({children}) => <div style={controlledWidth}>{children}</div>; //eslint-disable-line
@@ -26,7 +26,7 @@ const Box = ({children}) => <div style={halfColumn}>{children}</div>; //eslint-d
 class CloseButtonStory extends React.Component {
   render() {
     return (
-      <div style={{margin: '0px 0 16px', paddingLeft: '20px'}}>
+      <div style={{ margin: '0px 0 16px', paddingLeft: '20px' }}>
         <Container>
           <Box>
             <LiveCodeExample
@@ -34,7 +34,7 @@ class CloseButtonStory extends React.Component {
               previewRow
               title="CloseButton - skins"
               initialCode={ExamplesSkins}
-              />
+            />
           </Box>
           <Box>
             <LiveCodeExample
@@ -42,7 +42,7 @@ class CloseButtonStory extends React.Component {
               previewRow
               title="CloseButton - sizes"
               initialCode={ExamplesSizes}
-              />
+            />
           </Box>
         </Container>
       </div>

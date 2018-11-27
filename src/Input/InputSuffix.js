@@ -1,17 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import CloseButton from '../CloseButton'
-import DropDownArrow from '../new-icons/system/DropDownArrow'
-import Search from '../new-icons/Search'
-import ThemedInputErrorSuffix from './ThemedInputErrorSuffix'
-import ThemedInputHelpSuffix from './ThemedInputHelpSuffix'
-import InputLoaderSuffix from './InputLoaderSuffix'
-import Input from './Input'
+import CloseButton from '../CloseButton';
+import DropDownArrow from '../new-icons/system/DropDownArrow';
+import Search from '../new-icons/Search';
+import ThemedInputErrorSuffix from './ThemedInputErrorSuffix';
+import ThemedInputHelpSuffix from './ThemedInputHelpSuffix';
+import InputLoaderSuffix from './InputLoaderSuffix';
+import Input from './Input';
 
-import styles from './Input.scss'
+import styles from './Input.scss';
 
-const isFixVisible = fix => fix.isVisible
+const isFixVisible = fix => fix.isVisible;
 
 const suffixRules = {
   inputLoaderSuffix: ({ status, disabled }) =>
@@ -26,14 +26,14 @@ const suffixRules = {
     menuArrow && !isClearButtonVisible && !magnifyingGlass,
   unitSeparator: ({ unit }) => !!unit,
   unit: ({ unit }) => !!unit,
-  customSuffix: ({ suffix }) => !!suffix
-}
+  customSuffix: ({ suffix }) => !!suffix,
+};
 
 const getVisibleSuffixCount = args =>
   Object.keys(suffixRules)
     .map(key => suffixRules[key])
     .map(fn => fn(args))
-    .filter(x => x).length
+    .filter(x => x).length;
 
 const InputSuffix = ({
   theme,
@@ -51,9 +51,9 @@ const InputSuffix = ({
   suffix,
   focused,
   tooltipPlacement,
-  onTooltipShow
+  onTooltipShow,
 }) => {
-  const error = status === Input.StatusError
+  const error = status === Input.StatusError;
 
   const suffixes = [
     {
@@ -67,7 +67,7 @@ const InputSuffix = ({
           onTooltipShow={onTooltipShow}
         />
       ),
-      isVisible: suffixRules.inputErrorSuffix({ status, disabled })
+      isVisible: suffixRules.inputErrorSuffix({ status, disabled }),
     },
     {
       component: () => (
@@ -77,7 +77,7 @@ const InputSuffix = ({
           onTooltipShow={onTooltipShow}
         />
       ),
-      isVisible: suffixRules.inputLoaderSuffix({ status, disabled })
+      isVisible: suffixRules.inputLoaderSuffix({ status, disabled }),
     },
     {
       component: () => (
@@ -89,7 +89,7 @@ const InputSuffix = ({
           onTooltipShow={onTooltipShow}
         />
       ),
-      isVisible: suffixRules.inputHelpSuffix({ help, disabled })
+      isVisible: suffixRules.inputHelpSuffix({ help, disabled }),
     },
     {
       component: () => (
@@ -104,8 +104,8 @@ const InputSuffix = ({
       isVisible: suffixRules.magnifyingGlass({
         magnifyingGlass,
         isClearButtonVisible,
-        error
-      })
+        error,
+      }),
     },
     {
       component: () => (
@@ -117,11 +117,11 @@ const InputSuffix = ({
           />
         </div>
       ),
-      isVisible: suffixRules.clearButton({ isClearButtonVisible })
+      isVisible: suffixRules.clearButton({ isClearButtonVisible }),
     },
     {
       component: () => <div className={styles.unitSeparator} />,
-      isVisible: suffixRules.unitSeparator({ unit })
+      isVisible: suffixRules.unitSeparator({ unit }),
     },
     {
       component: () => (
@@ -129,11 +129,11 @@ const InputSuffix = ({
           {unit}
         </div>
       ),
-      isVisible: suffixRules.unit({ unit })
+      isVisible: suffixRules.unit({ unit }),
     },
     {
       component: () => suffix,
-      isVisible: suffixRules.customSuffix({ suffix })
+      isVisible: suffixRules.customSuffix({ suffix }),
     },
     {
       component: () => (
@@ -148,10 +148,10 @@ const InputSuffix = ({
       isVisible: suffixRules.menuArrow({
         menuArrow,
         isClearButtonVisible,
-        magnifyingGlass
-      })
-    }
-  ].filter(isFixVisible)
+        magnifyingGlass,
+      }),
+    },
+  ].filter(isFixVisible);
 
   return (
     <div className={styles.suffixes}>
@@ -161,15 +161,15 @@ const InputSuffix = ({
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 InputSuffix.propTypes = {
   suffixes: PropTypes.arrayOf(
     PropTypes.shape({
       component: PropTypes.func.isRequired,
-      isVisible: PropTypes.bool.isRequired
-    })
+      isVisible: PropTypes.bool.isRequired,
+    }),
   ),
   theme: PropTypes.oneOf([
     'normal',
@@ -178,7 +178,7 @@ InputSuffix.propTypes = {
     'material',
     'amaterial',
     'flat',
-    'flatdark'
+    'flatdark',
   ]),
   statusMessage: PropTypes.node,
   status: PropTypes.oneOf(['loading', 'error']),
@@ -194,8 +194,8 @@ InputSuffix.propTypes = {
   suffix: PropTypes.node,
   focused: PropTypes.bool,
   tooltipPlacement: PropTypes.string,
-  onTooltipShow: PropTypes.func
-}
+  onTooltipShow: PropTypes.func,
+};
 
-export default InputSuffix
-export { getVisibleSuffixCount }
+export default InputSuffix;
+export { getVisibleSuffixCount };

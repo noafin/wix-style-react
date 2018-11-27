@@ -1,6 +1,6 @@
 import React from 'react';
 import CloseButton from 'wix-style-react/CloseButton';
-import {storySettings} from './storySettings';
+import { storySettings } from './storySettings';
 
 import CloseButtonStory from './examples';
 
@@ -13,12 +13,12 @@ export default {
   componentProps: {
     skin: 'standard',
     size: 'medium',
-    disabled: false
+    disabled: false,
   },
 
   exampleProps: {
-    onClick: () => 'Clicked!'
+    onClick: () => 'Clicked!',
   },
 
-  examples: <CloseButtonStory/>
+  examples: <CloseButtonStory />,
 };

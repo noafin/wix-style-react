@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {ButtonNext} from 'wix-ui-core/button-next';
+import React, { Component } from 'react';
+import { ButtonNext } from 'wix-ui-core/button-next';
 import cx from 'classnames';
 
-import {string, oneOf, bool} from 'prop-types';
+import { string, oneOf, bool } from 'prop-types';
 import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
 
-import {closeButton} from 'wix-ui-core/themes/backoffice';
+import { closeButton } from 'wix-ui-core/themes/backoffice';
 
 class CloseButton extends Component {
   static displayName = 'CloseButton';
@@ -21,23 +21,23 @@ class CloseButton extends Component {
     /** applies disabled styles */
     disabled: bool,
     /** string based data hook */
-    dataHook: string
+    dataHook: string,
   };
 
   static defaultProps = {
     skin: 'standard',
     size: 'medium',
-    disabled: false
+    disabled: false,
   };
 
   render() {
-    const {skin, size, className, dataHook, ...rest} = this.props;
+    const { skin, size, className, dataHook, ...rest } = this.props;
 
     const classNames = cx(className, closeButton(skin, size));
 
     return (
       <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
-        {size === 'small' ? <Close/> : <CloseLarge/>}
+        {size === 'small' ? <Close /> : <CloseLarge />}
       </ButtonNext>
     );
   }
