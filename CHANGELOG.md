@@ -13,13 +13,15 @@ Types of changes:
 1. **Breaking** for breaking changes
 1. **Docs** for documentation changes
 
-## Next
+## 5.14.0 - 2018-11-26
 
 ### Added
 
-- `<TextButton/>` - new component to be used for minimal distraction. [#2434](https://github.com/wix/wix-style-react/pull/2434)
+- `<TextButton/>` - Add new component [#2434](https://github.com/wix/wix-style-react/pull/2434)
+- `<IconButton/>` - Add new component [#2445](https://github.com/wix/wix-style-react/pull/2445)
 
-- `<IconButton/>` - new component. [#2445](https://github.com/wix/wix-style-react/pull/2445)
+### Changed
+- `<DropdownLayout/>` - support controlled mode selection and fix keyboard marking [#2466](https://github.com/wix/wix-style-react/pull/2466)
 
 ### Fixed
 

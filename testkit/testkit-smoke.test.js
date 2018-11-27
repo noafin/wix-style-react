@@ -66,6 +66,7 @@ const FAILING_COMPONENTS = [
   'Tooltip',
   'VBox', // Component has no testkit
   'Collapse',
+  'WixStyleReact', // NO need for drivers
 ];
 
 /**

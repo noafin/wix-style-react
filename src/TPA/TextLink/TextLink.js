@@ -3,7 +3,6 @@ import { string } from 'prop-types';
 import classNames from 'classnames';
 import WixComponent from '../../BaseComponents/WixComponent';
 import tpaStyleInjector from '../TpaStyleInjector';
-import omit from 'omit';
 
 let styles = { locals: {} };
 try {
@@ -23,6 +22,20 @@ class TextLink extends WixComponent {
     target: null,
   };
 
+  getLinkProps = () => {
+    /* eslint-disable no-unused-vars */
+    const {
+      children,
+      className,
+      link,
+      href,
+      dataHook,
+      injectedStyles,
+      ...linkProps
+    } = this.props;
+    return linkProps;
+  };
+
   render() {
     const { children, className, link } = this.props;
     const { locals } = styles;
@@ -30,17 +43,10 @@ class TextLink extends WixComponent {
       [locals['wix-style-react-text-link']],
       className,
     ).trim();
-    const propsToOmit = [
-      'children',
-      'className',
-      'link',
-      'href',
-      'dataHook',
-      'injectedStyles',
-    ];
+    const linkProps = this.getLinkProps();
 
     return (
-      <a className={classes} href={link} {...omit(propsToOmit, this.props)}>
+      <a className={classes} href={link} {...linkProps}>
         {children}
       </a>
     );

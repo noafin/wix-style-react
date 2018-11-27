@@ -61,3 +61,5 @@ ExampleGeneric.propTypes = {
   footer: PropTypes.node,
   fullscreen: PropTypes.bool,
 };
+
+ExampleGeneric.displayName = 'GenericModalLayout';

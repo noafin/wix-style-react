@@ -3,7 +3,6 @@ import { string, bool } from 'prop-types';
 import classNames from 'classnames';
 import WixComponent from '../../BaseComponents/WixComponent';
 import tpaStyleInjector from '../TpaStyleInjector';
-import omit from 'omit';
 
 let styles = { locals: {} };
 try {
@@ -34,8 +33,24 @@ class Input extends WixComponent {
     return this.props.errorClassName || styles.locals.error;
   }
 
+  getInputProps = () => {
+    /* eslint-disable no-unused-vars */
+    const {
+      injectedStyles,
+      styles,
+      errorClassName,
+      inputClassName,
+      error,
+      dataHook,
+      ...inputProps
+    } = this.props;
+    return inputProps;
+  };
+
   render() {
     const errorClassName = this.props.error === true ? this.errorClassName : '';
+    const inputProps = this.getInputProps();
+
     return (
       <input
         className={classNames(
@@ -43,17 +58,7 @@ class Input extends WixComponent {
           this.props.inputClassName,
           errorClassName,
         )}
-        {...omit(
-          [
-            'injectedStyles',
-            'styles',
-            'errorClassName',
-            'inputClassName',
-            'error',
-            'dataHook',
-          ],
-          this.props,
-        )}
+        {...inputProps}
       />
     );
   }

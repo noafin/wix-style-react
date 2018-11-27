@@ -1,5 +1,4 @@
 import React from 'react';
-import omit from 'omit';
 import PropTypes from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
@@ -14,9 +13,15 @@ class Tabs extends WixComponent {
     hasDivider: true,
   };
 
+  getTabItemsProps = () => {
+    /* eslint-disable no-unused-vars */
+    const { sideContent, ...tabItemsProps } = this.props;
+    return tabItemsProps;
+  };
+
   render() {
     const { sideContent, hasDivider } = this.props;
-    const tabItemsProps = omit(['sideContent'], this.props);
+    const tabItemsProps = this.getTabItemsProps();
     const className = classNames(styles.container, {
       [styles.hasDivider]: hasDivider,
     });

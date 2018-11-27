@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
 
 import Ticker from './Ticker';
 import Unit from './Unit';
@@ -129,6 +128,9 @@ class Input extends Component {
           ]),
       );
 
+    /* eslint-disable no-unused-vars */
+    const { className, ...inputElementProps } = props;
+
     const inputElement = (
       <input
         style={{ textOverflow }}
@@ -159,7 +161,7 @@ class Input extends Component {
         onCompositionStart={() => this.onCompositionChange(true)}
         onCompositionEnd={() => this.onCompositionChange(false)}
         {...ariaAttribute}
-        {...omit(props, 'className')}
+        {...inputElementProps}
       />
     );
 

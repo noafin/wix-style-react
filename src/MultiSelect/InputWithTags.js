@@ -4,7 +4,6 @@ import Tag from '../Tag/Tag';
 import Input from '../Input';
 import InputSuffix from '../Input/InputSuffix';
 import styles from './InputWithTags.scss';
-import omit from 'omit';
 import classNames from 'classnames';
 import isUndefined from 'lodash/isUndefined';
 import SortableList from '../SortableList/SortableList';
@@ -72,25 +71,24 @@ class InputWithTags extends React.Component {
         !isUndefined(this.props.maxNumRows),
     });
 
-    const desiredProps = omit(
-      [
-        'onManuallyInput',
-        'inputElement',
-        'closeOnSelect',
-        'predicate',
-        'onClickOutside',
-        'fixedHeader',
-        'fixedFooter',
-        'dataHook',
-        'onFocus',
-        'withSelection',
-        'onBlur',
-        'menuArrow',
-        'errorMessage',
-        'onInputClicked',
-      ],
-      inputProps,
-    );
+    /* eslint-disable no-unused-vars */
+    const {
+      onManuallyInput,
+      inputElement,
+      closeOnSelect,
+      predicate,
+      onClickOutside,
+      fixedHeader,
+      fixedFooter,
+      dataHook,
+      onFocus,
+      withSelection,
+      onBlur,
+      menuArrow,
+      errorMessage: _,
+      onInputClicked,
+      ...desiredProps
+    } = inputProps;
     const fontSize =
       desiredProps.size && desiredProps.size === 'small' ? '14px' : '16px';
 

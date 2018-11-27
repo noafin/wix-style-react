@@ -45,6 +45,15 @@ describe('MessageBoxMarketerialLayout', () => {
       expect(driver.getPrimaryButton()).toBeNull();
     });
 
+    it('should not display disabled primary button if primaryButtonDisabled is true', () => {
+      const props = Object.assign({}, requiredProps, {
+        primaryButtonLabel: 'primaryButtonLabel',
+        primaryButtonDisabled: true,
+      });
+      const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
+      expect(driver.getPrimaryButton().attributes.disabled).toBeTruthy();
+    });
+
     it('should display the secondary button label text on top the secondary button', () => {
       const props = Object.assign({}, requiredProps, {
         secondaryButtonLabel: 'secondaryButtonLabel',

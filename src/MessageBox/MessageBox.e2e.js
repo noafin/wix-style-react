@@ -110,9 +110,13 @@ describe('MessageBox', () => {
       });
       const standard = 'announcement-standard';
       const primaryTheme = 'announcement-primary-theme';
+      const footnote = 'announcement-footnote';
+      const disabledAction = 'announctement-disabled-action';
       await browser.get(storyUrl);
       await verifyItem(standard);
       await verifyItem(primaryTheme);
+      await verifyItem(footnote);
+      await verifyItem(disabledAction);
     });
   });
 });

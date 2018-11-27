@@ -489,6 +489,12 @@ export const textButtonTestkitFactory = enzymeUniTestkitFactoryCreator(
   textButtonDriverFactory,
 );
 
+import { avatarDriverFactory } from '../src/Avatar/Avatar.driver';
+
+export const avatarTestkitFactory = enzymeUniTestkitFactoryCreator(
+  avatarDriverFactory,
+);
+
 import { iconButtonDriverFactory } from '../src/IconButton/IconButton.driver';
 
 export const iconButtonTestkitFactory = enzymeUniTestkitFactoryCreator(

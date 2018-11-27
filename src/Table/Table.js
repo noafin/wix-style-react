@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
 import defaultTo from 'lodash/defaultTo';
 import classNames from 'classnames';
 
@@ -56,16 +55,18 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
 }
 
 export function getDataTableProps(tableProps) {
+  /* eslint-disable no-unused-vars */
+  const {
+    showSelection,
+    selectedIds,
+    onSelectionChanged,
+    dataHook,
+    newDesign,
+    hideHeader,
+    ...props
+  } = tableProps;
   return {
-    ...omit(
-      tableProps,
-      'showSelection',
-      'selectedIds',
-      'onSelectionChanged',
-      'dataHook',
-      'newDesign',
-      'hideHeader',
-    ),
+    ...props,
     newDesign: true,
     rowClass: classNames(tableProps.rowClass, style.tableRow),
   };

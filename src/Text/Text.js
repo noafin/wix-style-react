@@ -2,7 +2,6 @@ import React from 'react';
 import { oneOf, bool, string, any } from 'prop-types';
 import style from './Text.st.css';
 import deprecationLog from '../utils/deprecationLog';
-import omit from 'lodash/omit';
 
 /*
  * Temporary fix: SIZES, SKINS, WEIGHTS constants are copied here from constants.js
@@ -45,10 +44,13 @@ const Text = ({
     bold = false;
   }
 
+  /* eslint-disable no-unused-vars */
+  const { dataHook, ...textProps } = rest;
+
   return React.createElement(
     tagName,
     {
-      ...omit(rest, ['dataHook']),
+      ...textProps,
       ...style(
         'root',
         {

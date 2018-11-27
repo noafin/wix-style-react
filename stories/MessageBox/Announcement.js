@@ -12,6 +12,9 @@ import AnnouncementStandardRaw from '!raw-loader!./AnnouncementExamples/Standard
 import PremiumAction from './AnnouncementExamples/PremiumAction';
 import PremiumActionRaw from '!raw-loader!./AnnouncementExamples/PremiumAction';
 
+import DisabledAction from './AnnouncementExamples/DisabledAction';
+import DisabledActionRaw from '!raw-loader!./AnnouncementExamples/DisabledAction';
+
 import Footnote from './AnnouncementExamples/Footnote';
 import FootnoteRaw from '!raw-loader!./AnnouncementExamples/Footnote';
 
@@ -42,6 +45,11 @@ export default () => (
           title="Footnote"
           code={FootnoteRaw}
           children={<Footnote />}
+        />
+        <CodeExample
+          title="Disabled Action"
+          code={DisabledActionRaw}
+          children={<DisabledAction />}
         />
       </div>
     </div>
