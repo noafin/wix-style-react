@@ -16,7 +16,7 @@ const HeaderLayout = ({ title, onCancel, theme, closeButton }) => {
       {closeButton ? (
         <CloseButton
           dataHook="header-close-button"
-          size="small"
+          size="medium"
           skin="transparent"
           onClick={onCancel}
         />

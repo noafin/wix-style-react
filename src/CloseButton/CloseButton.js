@@ -12,7 +12,7 @@ class CloseButton extends Component {
   static displayName = 'CloseButton';
 
   static propTypes = {
-    /** additional classes */
+    /** additional css classes */
     className: string,
     /** skins of closebutton */
     skin: oneOf(['standard', 'inverted', 'light', 'dark', 'transparent']),
@@ -20,14 +20,14 @@ class CloseButton extends Component {
     size: oneOf(['small', 'medium']),
     /** applies disabled styles */
     disabled: bool,
-    /** string based data hook */
-    dataHook: string,
+    /** string based data hook for testing */
+    dataHook: string
   };
 
   static defaultProps = {
     skin: 'standard',
-    size: 'medium',
-    disabled: false,
+    size: 'small',
+    disabled: false
   };
 
   render() {

@@ -12,13 +12,13 @@ export default {
 
   componentProps: {
     skin: 'standard',
-    size: 'medium',
-    disabled: false,
+    size: 'small',
+    disabled: false
   },
 
   exampleProps: {
-    onClick: () => 'Clicked!',
+    onClick: () => 'Clicked!'
   },
 
-  examples: <CloseButtonStory />,
+  examples: <CloseButtonStory />
 };
