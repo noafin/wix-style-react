@@ -1,23 +1,23 @@
-import React from 'react'
-import CloseButton from '.'
-import { shallow } from 'enzyme'
-import Close from '../new-icons/system/Close'
-import CloseLarge from '../new-icons/system/CloseLarge'
+import React from 'react';
+import CloseButton from '.';
+import { shallow } from 'enzyme';
+import Close from '../new-icons/system/Close';
+import CloseLarge from '../new-icons/system/CloseLarge';
 
 describe('CloseButton', () => {
   it('should have correct displayName', async () => {
-    expect(CloseButton.displayName).toEqual('CloseButton')
-  })
+    expect(CloseButton.displayName).toEqual('CloseButton');
+  });
 
   describe('Icon', () => {
     it('when given small should have size <Close/>', () => {
-      const wrapper = shallow(<CloseButton size="small" />)
-      expect(wrapper.props().children).toEqual(<Close />)
-    })
+      const wrapper = shallow(<CloseButton size="small" />);
+      expect(wrapper.props().children).toEqual(<Close />);
+    });
 
     it('when given medium or none should have size <CloseLarge />', () => {
-      const wrapper = shallow(<CloseButton />)
-      expect(wrapper.props().children).toEqual(<CloseLarge />)
-    })
-  })
-})
+      const wrapper = shallow(<CloseButton />);
+      expect(wrapper.props().children).toEqual(<CloseLarge />);
+    });
+  });
+});

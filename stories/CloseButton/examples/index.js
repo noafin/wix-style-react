@@ -1,27 +1,27 @@
-import React from 'react'
+import React from 'react';
 
-import LiveCodeExample from '../../utils/Components/LiveCodeExample'
+import LiveCodeExample from '../../utils/Components/LiveCodeExample';
 
-import ExamplesSkins from '!raw-loader!./ExamplesSkins'
-import ExamplesSizes from '!raw-loader!./ExamplesSizes'
+import ExamplesSkins from '!raw-loader!./ExamplesSkins';
+import ExamplesSizes from '!raw-loader!./ExamplesSizes';
 
 const controlledWidth = {
   height: 'auto',
   width: '100%',
-  display: 'flex'
-}
+  display: 'flex',
+};
 
 const halfColumn = {
   display: 'flex',
   flexDirection: 'column',
   padding: '10px',
   width: '48%',
-  lineHeight: '1.6'
-}
+  lineHeight: '1.6',
+};
 
-const Container = props => <div style={controlledWidth} {...props} />
+const Container = props => <div style={controlledWidth} {...props} />;
 
-const Box = props => <div style={halfColumn} {...props} />
+const Box = props => <div style={halfColumn} {...props} />;
 
 class CloseButtonStory extends React.Component {
   render() {
@@ -46,8 +46,8 @@ class CloseButtonStory extends React.Component {
           </Box>
         </Container>
       </div>
-    )
+    );
   }
 }
 
-export default CloseButtonStory
+export default CloseButtonStory;
