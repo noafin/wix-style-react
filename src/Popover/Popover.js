@@ -1,6 +1,6 @@
 import React from 'react';
-import {Popover as CorePopover} from 'wix-ui-core/Popover';
-import {buildChildrenObject} from 'wix-ui-core/dist/src/utils';
+import { Popover as CorePopover } from 'wix-ui-core/Popover';
+import { buildChildrenObject } from 'wix-ui-core/dist/src/utils';
 import PropTypes from 'prop-types';
 import WixComponent from '../BaseComponents/WixComponent';
 
@@ -12,11 +12,12 @@ import style from './Popover.st.css';
 // we're wrapping their children with a <div>.
 /* eslint-disable react/prop-types */
 const buildCorePopoverChild = name => {
-  const Comp = ({children, ...rest}) => React.createElement(
-    CorePopover[name],
-    rest,
-    typeof children === 'string' ? <div>{children}</div> : children
-  );
+  const Comp = ({ children, ...rest }) =>
+    React.createElement(
+      CorePopover[name],
+      rest,
+      typeof children === 'string' ? <div>{children}</div> : children,
+    );
 
   Comp.displayName = `Popover.${name}`;
 
@@ -48,43 +49,40 @@ class Popover extends WixComponent {
 
       // Making sure <Popover.Element/> is provded
       if (!childrenObj.Element) {
-        return new Error('Invalid children provided, <Popover.Element/> must be provided');
+        return new Error(
+          'Invalid children provided, <Popover.Element/> must be provided',
+        );
       }
 
       // TODO: Detect unknown children
-    })
-  }
+    }),
+  };
 
   static defaultProps = {
     dataHook: '',
-    theme: 'light'
-  }
+    theme: 'light',
+  };
 
   onClickOutside(e) {
     this.props.onClickOutside && this.props.onClickOutside(e);
   }
 
   render() {
-    const {
-      dataHook,
-      theme,
-      bounce,
-      ...rest
-    } = this.props;
+    const { dataHook, theme, bounce, ...rest } = this.props;
 
     return (
-      <div
-        data-hook={dataHook}
-        >
+      <div data-hook={dataHook}>
         <CorePopover
           {...rest}
-          {
-            ...style('root', {
+          {...style(
+            'root',
+            {
               bounce,
-              theme
-            }, this.props)
-          }
-          />
+              theme,
+            },
+            this.props,
+          )}
+        />
       </div>
     );
   }

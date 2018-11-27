@@ -7,14 +7,14 @@ import DropdownLayout from 'wix-style-react/DropdownLayout';
 class ExampleDropdownLayout extends React.Component {
   state = {
     shown: false,
-    selectedId: -1
-  }
+    selectedId: -1,
+  };
 
   dropdownLayoutRef = null;
 
-  open = () => this.setState({shown: true});
-  close = () => this.setState({shown: false});
-  toggle = () => this.setState(({shown}) => ({shown: !shown}));
+  open = () => this.setState({ shown: true });
+  close = () => this.setState({ shown: false });
+  toggle = () => this.setState(({ shown }) => ({ shown: !shown }));
 
   onKeyDown = e => {
     if (this.dropdownLayoutRef) {
@@ -25,18 +25,18 @@ class ExampleDropdownLayout extends React.Component {
   onSelect = selectedId => {
     this.setState({
       selectedId,
-      shown: false
+      shown: false,
     });
-  }
+  };
 
   render() {
     return (
       <div
         style={{
           textAlign: 'center',
-          padding: 50
+          padding: 50,
         }}
-        >
+      >
         <Popover
           dataHook="story-popover-dropdown-layout"
           shown={this.state.shown}
@@ -45,25 +45,25 @@ class ExampleDropdownLayout extends React.Component {
           appendTo="parent"
           onClickOutside={this.close}
           onKeyDown={this.onKeyDown}
-          >
+        >
           <Popover.Element>
             <Button onClick={this.toggle}>Click me!</Button>
           </Popover.Element>
           <Popover.Content>
-            <div style={{padding: '6px 0'}}>
+            <div style={{ padding: '6px 0' }}>
               <DropdownLayout
-                ref={r => this.dropdownLayoutRef = r}
+                ref={r => (this.dropdownLayoutRef = r)}
                 minWidthPixels={200}
                 onSelect={this.onSelect}
                 options={[
-                  {id: 0, value: 'Option 1'},
-                  {id: 1, value: 'Option 2'},
-                  {id: 2, value: 'Option 3'},
-                  {id: 3, value: 'Option 4'}
+                  { id: 0, value: 'Option 1' },
+                  { id: 1, value: 'Option 2' },
+                  { id: 2, value: 'Option 3' },
+                  { id: 3, value: 'Option 4' },
                 ]}
                 visible
                 inContainer
-                />
+              />
             </div>
           </Popover.Content>
         </Popover>

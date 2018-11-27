@@ -1,16 +1,13 @@
-import {
-  popoverDriverFactory as corePopoverDriverFactory
-} from 'wix-ui-core/dist/src/components/Popover/Popover.driver';
+import { popoverDriverFactory as corePopoverDriverFactory } from 'wix-ui-core/dist/src/components/Popover/Popover.driver';
 
-const popoverDriverFactory = ({element, eventTrigger}) => {
-
+const popoverDriverFactory = ({ element, eventTrigger }) => {
   const driver = {
-    exists: () => !!element
+    exists: () => !!element,
   };
 
   return {
-    ...corePopoverDriverFactory({element, eventTrigger}),
-    ...driver
+    ...corePopoverDriverFactory({ element, eventTrigger }),
+    ...driver,
   };
 };
 

@@ -1,18 +1,29 @@
 import eyes from 'eyes.it';
 
-import {popoverTestkitFactory} from '../../testkit/protractor';
-import {createStoryUrl, waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
-import {createTestStoryUrl} from '../../test/utils/storybook-helpers';
-import {storySettings} from '../../stories/Popover/storySettings';
+import { popoverTestkitFactory } from '../../testkit/protractor';
+import {
+  createStoryUrl,
+  waitForVisibilityOf,
+  scrollToElement,
+} from 'wix-ui-test-utils/protractor';
+import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
+import { storySettings } from '../../stories/Popover/storySettings';
 
 describe('Popover', () => {
-  const storyUrl = createStoryUrl({kind: storySettings.kind, story: storySettings.storyName});
-  const testStoryUrl = testName => createTestStoryUrl({...storySettings, testName});
+  const storyUrl = createStoryUrl({
+    kind: storySettings.kind,
+    story: storySettings.storyName,
+  });
+  const testStoryUrl = testName =>
+    createTestStoryUrl({ ...storySettings, testName });
 
   const createDriver = async (dataHook = storySettings.dataHook) => {
-    const driver = popoverTestkitFactory({dataHook});
+    const driver = popoverTestkitFactory({ dataHook });
 
-    await waitForVisibilityOf(driver.element(), 'Cannot find Popover component');
+    await waitForVisibilityOf(
+      driver.element(),
+      'Cannot find Popover component',
+    );
     await scrollToElement(driver.element());
     return driver;
   };

@@ -12,7 +12,7 @@ import Button from '../Backoffice/Button';
 import * as styles from './MessageBoxMarketerialLayout.scss';
 
 deprecationLog(
-  'MessageBoxMarketerialLayout have issue with image positioning. Please use fixImagePosition prop to fix it. Next major version will have a fix by default.'
+  'MessageBoxMarketerialLayout have issue with image positioning. Please use fixImagePosition prop to fix it. Next major version will have a fix by default.',
 );
 class MessageBoxMarketerialLayout extends WixComponent {
   render() {
@@ -29,29 +29,29 @@ class MessageBoxMarketerialLayout extends WixComponent {
       primaryButtonTheme,
       imageComponent,
       footerBottomChildren,
-      fixImagePosition
+      fixImagePosition,
     } = this.props;
 
     const headerClasses = classNames({
       [styles.header]: true,
-      [styles[`header-${theme}`]]: true
+      [styles[`header-${theme}`]]: true,
     });
 
     return (
       <div className={styles.root}>
         <div className={headerClasses}>
           <div className={styles.close}>
-            <CloseButton dataHook="close-button" onClick={onClose}/>
+            <CloseButton dataHook="close-button" onClick={onClose} />
           </div>
           {imageComponent ? (
             <div className={styles.headerImageComponent}>{imageComponent}</div>
           ) : (
             <div
               className={classNames(styles.headerImage, {
-                [styles.headerImageFix]: fixImagePosition
+                [styles.headerImageFix]: fixImagePosition,
               })}
-              >
-              <img src={imageUrl} data-hook="header-image"/>
+            >
+              <img src={imageUrl} data-hook="header-image" />
             </div>
           )}
         </div>
@@ -70,7 +70,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
                 theme={`full${primaryButtonTheme || theme}`}
                 onClick={onPrimaryButtonClick}
                 dataHook="primary-button"
-                >
+              >
                 {primaryButtonLabel}
               </Button>
             </div>
@@ -80,7 +80,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
               <span
                 onClick={onSecondaryButtonClick}
                 data-hook="secondary-button"
-                >
+              >
                 {secondaryButtonLabel}
               </span>
             </div>
@@ -91,7 +91,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
             data-hook="footer-layout-bottom-children"
             className={styles.bottomChildren}
             children={footerBottomChildren}
-            />
+          />
         ) : null}
       </div>
     );
@@ -111,11 +111,11 @@ MessageBoxMarketerialLayout.propTypes = {
   footerBottomChildren: PropTypes.node,
   theme: PropTypes.oneOf(['blue', 'purple']),
   primaryButtonTheme: PropTypes.oneOf(['blue', 'purple']),
-  fixImagePosition: PropTypes.bool
+  fixImagePosition: PropTypes.bool,
 };
 
 MessageBoxMarketerialLayout.defaultProps = {
-  theme: 'blue'
+  theme: 'blue',
 };
 
 export default MessageBoxMarketerialLayout;

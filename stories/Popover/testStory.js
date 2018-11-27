@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import {storiesOf} from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 
-import {getTestStoryKind} from '../storiesHierarchy';
-import {storySettings} from './storySettings';
+import { getTestStoryKind } from '../storiesHierarchy';
+import { storySettings } from './storySettings';
 
 import Popover from '../../src/Popover';
 import IconButton from '../../src/IconButton';
@@ -12,7 +12,7 @@ import More from '../../src/new-icons/More';
 const kind = getTestStoryKind(storySettings);
 const dataHook = 'story-popover-test';
 
-const TestContainer = ({children}) => (
+const TestContainer = ({ children }) => (
   <div
     data-hook={dataHook}
     style={{
@@ -21,17 +21,14 @@ const TestContainer = ({children}) => (
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundColor: '#f0f4f7'
+      backgroundColor: '#f0f4f7',
     }}
-    >
+  >
     {children}
   </div>
 );
 
-const PopoverAnchor = ({
-  anchorStyles,
-  placement
-}) => (
+const PopoverAnchor = ({ anchorStyles, placement }) => (
   <Popover
     shown
     showArrow
@@ -39,126 +36,125 @@ const PopoverAnchor = ({
     appendTo="window"
     style={{
       position: 'absolute',
-      ...anchorStyles
+      ...anchorStyles,
     }}
-    >
+  >
     <Popover.Element>
-      <IconButton><More/></IconButton>
+      <IconButton>
+        <More />
+      </IconButton>
     </Popover.Element>
     <Popover.Content>
       <div
         style={{
           width: 168,
-          height: 90
+          height: 90,
         }}
-        />
+      />
     </Popover.Content>
   </Popover>
 );
 
-storiesOf(kind, module)
-  .add('Auto positioning', () => (
-    <TestContainer>
-      <PopoverAnchor
-        placement="auto"
-        anchorStyles={{
-          top: '50%',
-          left: 36,
-          transform: 'translateY(-50%)'
-        }}
-        />
+storiesOf(kind, module).add('Auto positioning', () => (
+  <TestContainer>
+    <PopoverAnchor
+      placement="auto"
+      anchorStyles={{
+        top: '50%',
+        left: 36,
+        transform: 'translateY(-50%)',
+      }}
+    />
 
-      <PopoverAnchor
-        placement="auto"
-        anchorStyles={{
-          left: '50%',
-          bottom: 36,
-          transform: 'translateX(-50%)'
-        }}
-        />
+    <PopoverAnchor
+      placement="auto"
+      anchorStyles={{
+        left: '50%',
+        bottom: 36,
+        transform: 'translateX(-50%)',
+      }}
+    />
 
-      <PopoverAnchor
-        placement="auto"
-        anchorStyles={{
-          top: '50%',
-          right: 36,
-          transform: 'translateY(-50%)'
-        }}
-        />
+    <PopoverAnchor
+      placement="auto"
+      anchorStyles={{
+        top: '50%',
+        right: 36,
+        transform: 'translateY(-50%)',
+      }}
+    />
 
-      <PopoverAnchor
-        placement="auto"
-        anchorStyles={{
-          top: 36,
-          left: '50%',
-          transform: 'translateX(-50%)'
-        }}
-        />
-    </TestContainer>
-  ));
+    <PopoverAnchor
+      placement="auto"
+      anchorStyles={{
+        top: 36,
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }}
+    />
+  </TestContainer>
+));
 
-storiesOf(kind, module)
-  .add('Arrow adjusting', () => (
-    <TestContainer>
-      <PopoverAnchor
-        anchorStyles={{
-          top: 18,
-          left: 18
-        }}
-        />
+storiesOf(kind, module).add('Arrow adjusting', () => (
+  <TestContainer>
+    <PopoverAnchor
+      anchorStyles={{
+        top: 18,
+        left: 18,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          left: 18,
-          bottom: 18
-        }}
-        />
+    <PopoverAnchor
+      anchorStyles={{
+        left: 18,
+        bottom: 18,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          top: 18,
-          right: 18
-        }}
-        />
+    <PopoverAnchor
+      anchorStyles={{
+        top: 18,
+        right: 18,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          right: 18,
-          bottom: 18
-        }}
-        />
-    </TestContainer>
-  ));
+    <PopoverAnchor
+      anchorStyles={{
+        right: 18,
+        bottom: 18,
+      }}
+    />
+  </TestContainer>
+));
 
-storiesOf(kind, module)
-  .add('Arrow edge adjusting', () => (
-    <TestContainer>
-      <PopoverAnchor
-        anchorStyles={{
-          top: 0,
-          left: 0
-        }}
-        />
+storiesOf(kind, module).add('Arrow edge adjusting', () => (
+  <TestContainer>
+    <PopoverAnchor
+      anchorStyles={{
+        top: 0,
+        left: 0,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          left: 0,
-          bottom: 0
-        }}
-        />
+    <PopoverAnchor
+      anchorStyles={{
+        left: 0,
+        bottom: 0,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          top: 0,
-          right: 0
-        }}
-        />
+    <PopoverAnchor
+      anchorStyles={{
+        top: 0,
+        right: 0,
+      }}
+    />
 
-      <PopoverAnchor
-        anchorStyles={{
-          right: 0,
-          bottom: 0
-        }}
-        />
-    </TestContainer>
-  ));
+    <PopoverAnchor
+      anchorStyles={{
+        right: 0,
+        bottom: 0,
+      }}
+    />
+  </TestContainer>
+));
