@@ -21,13 +21,13 @@ class CloseButton extends Component {
     /** applies disabled styles */
     disabled: bool,
     /** string based data hook for testing */
-    dataHook: string
+    dataHook: string,
   };
 
   static defaultProps = {
     skin: 'standard',
     size: 'small',
-    disabled: false
+    disabled: false,
   };
 
   render() {
