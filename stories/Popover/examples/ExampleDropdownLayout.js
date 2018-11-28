@@ -6,8 +6,9 @@ import DropdownLayout from 'wix-style-react/DropdownLayout';
 
 class ExampleDropdownLayout extends React.Component {
   state = {
-    shown: false,
     selectedId: -1,
+    selectedValue: 'Click me!',
+    shown: false,
   };
 
   dropdownLayoutRef = null;
@@ -18,28 +19,40 @@ class ExampleDropdownLayout extends React.Component {
 
   onKeyDown = e => {
     if (this.dropdownLayoutRef) {
-      this.dropdownLayoutRef._onKeyDown(e);
+      const eventHandled = this.dropdownLayoutRef._onKeyDown(e);
+
+      if (eventHandled) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }
   };
 
-  onSelect = selectedId => {
+  onSelect = ({ id: selectedId, value: selectedValue }) => {
     this.setState({
       selectedId,
+      selectedValue,
       shown: false,
     });
   };
 
   render() {
+    const { selectedId, selectedValue, shown } = this.state;
+
     return (
       <div
         style={{
           textAlign: 'center',
           padding: 50,
+          height: 300,
         }}
       >
+        <div>Notice how the Popover position is always in the viewport.</div>
+        <br />
+
         <Popover
           dataHook="story-popover-dropdown-layout"
-          shown={this.state.shown}
+          shown={shown}
           showArrow
           placement="bottom"
           appendTo="parent"
@@ -47,13 +60,14 @@ class ExampleDropdownLayout extends React.Component {
           onKeyDown={this.onKeyDown}
         >
           <Popover.Element>
-            <Button onClick={this.toggle}>Click me!</Button>
+            <Button onClick={this.toggle}>{selectedValue}</Button>
           </Popover.Element>
           <Popover.Content>
             <div style={{ padding: '6px 0' }}>
               <DropdownLayout
                 ref={r => (this.dropdownLayoutRef = r)}
                 minWidthPixels={200}
+                selectedId={selectedId}
                 onSelect={this.onSelect}
                 options={[
                   { id: 0, value: 'Option 1' },

@@ -12,7 +12,7 @@ import ExampleDropdownLayoutRaw from '!raw-loader!./examples/ExampleDropdownLayo
 
 const children = [
   {
-    label: 'Content with padding',
+    label: 'Content without padding',
     value: [
       <Popover.Element key="1">This is the Popover.Element</Popover.Element>,
       <Popover.Content key="2">Content without padding</Popover.Content>,

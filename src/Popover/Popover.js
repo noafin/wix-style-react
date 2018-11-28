@@ -20,6 +20,7 @@ const buildCorePopoverChild = name => {
     );
 
   Comp.displayName = `Popover.${name}`;
+  Comp.propTypes = { children: PropTypes.node };
 
   return Comp;
 };
@@ -47,14 +48,28 @@ class Popover extends WixComponent {
     children: PropTypes.arrayOf(children => {
       const childrenObj = buildChildrenObject(children);
 
-      // Making sure <Popover.Element/> is provded
       if (!childrenObj.Element) {
         return new Error(
           'Invalid children provided, <Popover.Element/> must be provided',
         );
       }
 
-      // TODO: Detect unknown children
+      if (!childrenObj.Content) {
+        return new Error(
+          'Invalid children provided, <Popover.Content/> must be provided',
+        );
+      }
+
+      return Object.entries(childrenObj).reduce((err, [key, val]) => {
+        if (!err && (key !== 'Element' || key !== 'Content')) {
+          return new Error(
+            `Invalid children provided, unknown child <${val.displayName ||
+              key}/> supplied`,
+          );
+        }
+
+        return err;
+      }, false);
     }),
   };
 

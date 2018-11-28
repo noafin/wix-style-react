@@ -45,20 +45,49 @@ describe('Popover', () => {
     expect(driver.exists()).toBeTruthy();
   });
 
-  it('should throw a PropType error when not provided with Popover.Element', () => {
-    const consoleErrorSpy = jest
-      .spyOn(global.console, 'error')
-      .mockImplementation(jest.fn());
+  describe('propTypes validation', () => {
+    let consoleErrorSpy;
 
-    createDriver(
-      <Popover>
-        <div>wut wut?</div>
-        <Popover.Content>I am the content!</Popover.Content>
-      </Popover>,
-    );
+    beforeEach(() => {
+      consoleErrorSpy = jest
+        .spyOn(global.console, 'error')
+        .mockImplementation(jest.fn());
+    });
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
-      'Warning: Failed prop type: Invalid children provided, <Popover.Element/> must be provided\n    in Popover',
-    );
+    it('should throw a PropType error when not provided with Popover.Element', () => {
+      createDriver(
+        <Popover>
+          <Popover.Content>I am the content!</Popover.Content>
+        </Popover>,
+      );
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Warning: Failed prop type: Invalid children provided, <Popover.Element/> must be provided\n    in Popover',
+      );
+    });
+
+    it('should throw a PropType error when not provided with Popover.Content', () => {
+      createDriver(
+        <Popover>
+          <Popover.Element>I am the Element!</Popover.Element>
+        </Popover>,
+      );
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Warning: Failed prop type: Invalid children provided, <Popover.Content/> must be provided\n    in Popover',
+      );
+    });
+
+    it('should throw a PropType error when provided with unknown child', () => {
+      createDriver(
+        <Popover>
+          <div>Who am I? What am I?</div>
+        </Popover>,
+      );
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Warning: Failed prop type: Invalid children provided, unknown child <div/> supplied\n    in Popover',
+      );
+    });
   });
 });
