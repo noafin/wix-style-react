@@ -81,6 +81,8 @@ describe('Popover', () => {
     it('should throw a PropType error when provided with unknown child', () => {
       createDriver(
         <Popover>
+          <Popover.Element>I am the Element!</Popover.Element>
+          <Popover.Content>I am the content!</Popover.Content>
           <div>Who am I? What am I?</div>
         </Popover>,
       );

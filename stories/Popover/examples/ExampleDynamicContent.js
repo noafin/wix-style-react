@@ -38,7 +38,9 @@ class ExampleDynamicContent extends React.Component {
             </div>
           </Popover.Element>
           <Popover.Content>
-            <div style={{ padding: '12px 24px' }}>{this.state.content}</div>
+            <div style={{ padding: '12px 24px', maxWidth: 230 }}>
+              {this.state.content}
+            </div>
           </Popover.Content>
         </Popover>
       </div>

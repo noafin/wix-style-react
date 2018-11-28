@@ -23,7 +23,9 @@ const children = [
     value: [
       <Popover.Element key="1">This is the Popover.Element</Popover.Element>,
       <Popover.Content key="2">
-        <div style={{ padding: '12px 24px' }}>Content with padding</div>
+        <div style={{ padding: '12px 24px', textAlign: 'center' }}>
+          Content with padding
+        </div>
       </Popover.Content>,
     ],
   },
@@ -44,7 +46,7 @@ export default {
     timeout: 150,
     shown: false,
     placement: 'top',
-    appendTo: 'viewport',
+    appendTo: 'parent',
 
     onClick: () => setProps({ shown: !getProps().shown }),
   }),

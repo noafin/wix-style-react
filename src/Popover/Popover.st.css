@@ -31,61 +31,56 @@ WHITE;
 .root::popoverContent {
   border: none;
 
-  font-family: value(fontRoman);
   border-radius: 8px;
   box-sizing: border-box;
-  font-size: 14px;
-  line-height: 1.29;
   box-shadow: value(shadow30);
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 
   font-size: 14px;
   line-height: 18px;
-  text-align: center;
-  max-width: 230px;
 
-  /* Dark theme specific stuff */
-  color: value(WHITE);
-  background: value(D10);
-}
-
-.root::popover[data-placement*="right"]::arrow {
-  border-right-color: value(D10);
-}
-
-.root::popover[data-placement*="left"]::arrow {
-  border-left-color: value(D10);
-}
-
-.root::popover[data-placement*="top"]::arrow {
-  border-top-color: value(D10);
-}
-
-.root::popover[data-placement*="bottom"]::arrow {
-  border-bottom-color: value(D10);
-}
-
-/* Light theme */
-.root:theme(light)::popoverContent {
+  /* Light theme specific stuff */
   color: value(D10);
   background: value(WHITE);
 }
 
-.root:theme(light)::popover[data-placement*="right"]::arrow {
+.root::popover[data-placement*="right"]::arrow {
   border-right-color: value(WHITE);
 }
 
-.root:theme(light)::popover[data-placement*="left"]::arrow {
+.root::popover[data-placement*="left"]::arrow {
   border-left-color: value(WHITE);
 }
 
-.root:theme(light)::popover[data-placement*="top"]::arrow {
+.root::popover[data-placement*="top"]::arrow {
   border-top-color: value(WHITE);
 }
 
-.root:theme(light)::popover[data-placement*="bottom"]::arrow {
+.root::popover[data-placement*="bottom"]::arrow {
   border-bottom-color: value(WHITE);
+}
+
+/* Dark theme */
+.root:theme(dark)::popoverContent {
+  color: value(WHITE);
+  background: value(D10);
+}
+
+.root:theme(dark)::popover[data-placement*="right"]::arrow {
+  border-right-color: value(D10);
+}
+
+.root:theme(dark)::popover[data-placement*="left"]::arrow {
+  border-left-color: value(D10);
+}
+
+.root:theme(dark)::popover[data-placement*="top"]::arrow {
+  border-top-color: value(D10);
+}
+
+.root:theme(dark)::popover[data-placement*="bottom"]::arrow {
+  border-bottom-color: value(D10);
 }
 
 /*
