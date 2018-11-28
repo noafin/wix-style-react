@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../storiesHierarchy';
-import { storySettings } from './storySettings';
+import { storySettings, testStories } from './storySettings';
 
 import Popover from '../../src/Popover';
 import IconButton from '../../src/IconButton';
@@ -55,7 +55,7 @@ const PopoverAnchor = ({ anchorStyles, placement }) => (
   </Popover>
 );
 
-storiesOf(kind, module).add('Auto positioning', () => (
+storiesOf(kind, module).add(testStories.AUTO_POSITIONING, () => (
   <TestContainer>
     <PopoverAnchor
       placement="auto"
@@ -95,7 +95,7 @@ storiesOf(kind, module).add('Auto positioning', () => (
   </TestContainer>
 ));
 
-storiesOf(kind, module).add('Arrow adjusting', () => (
+storiesOf(kind, module).add(testStories.ARROW_ADJUSTING, () => (
   <TestContainer>
     <PopoverAnchor
       anchorStyles={{
@@ -127,7 +127,7 @@ storiesOf(kind, module).add('Arrow adjusting', () => (
   </TestContainer>
 ));
 
-storiesOf(kind, module).add('Arrow edge adjusting', () => (
+storiesOf(kind, module).add(testStories.ARROW_EDGE_ADJUSTING, () => (
   <TestContainer>
     <PopoverAnchor
       anchorStyles={{

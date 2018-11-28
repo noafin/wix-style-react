@@ -7,7 +7,7 @@ import {
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
 import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
-import { storySettings } from '../../stories/Popover/storySettings';
+import { storySettings, testStories } from '../../stories/Popover/storySettings';
 
 describe('Popover', () => {
   const storyUrl = createStoryUrl({
@@ -44,15 +44,15 @@ describe('Popover', () => {
     };
 
     eyes.it('check auto positioning', async () => {
-      await checkTestStory('Auto positioning');
+      await checkTestStory(testStories.AUTO_POSITIONING);
     });
 
     eyes.it('check arrow adjusting', async () => {
-      await checkTestStory('Arrow adjusting');
+      await checkTestStory(testStories.ARROW_ADJUSTING);
     });
 
     eyes.it('check arrow edge adjusting', async () => {
-      await checkTestStory('Arrow edge adjusting');
+      await checkTestStory(testStories.ARROW_EDGE_ADJUSTING);
     });
   });
 });

@@ -14,7 +14,7 @@ class Popover extends WixComponent {
 
   static propTypes = {
     ...CorePopover.propTypes,
-    dataHook: PropTypes.string,
+    ...WixComponent.propTypes,
 
     /** Callback to be called when the user perform a click outside of the component */
     onClickOutside: PropTypes.func,
