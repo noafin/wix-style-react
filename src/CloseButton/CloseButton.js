@@ -34,10 +34,12 @@ class CloseButton extends Component {
     const { skin, size, className, dataHook, ...rest } = this.props;
 
     const classNames = cx(className, closeButton(skin, size));
+    const CloseIcon = <Close data-hook="close" />;
+    const CloseLargeIcon = <CloseLarge data-hook="close-large" />;
 
     return (
       <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
-        {size === 'small' ? <Close /> : <CloseLarge />}
+        {size === 'small' ? CloseIcon : CloseLargeIcon}
       </ButtonNext>
     );
   }
