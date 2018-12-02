@@ -5,22 +5,22 @@ import Modal from './Modal';
 import ModalFactory from './Modal.driver';
 import { resolveIn } from '../../test/utils';
 
-import { ReactDOMTestContainer } from '../../test/dom-test-container';
+import { createRendererWithDriver, cleanup } from '../../test/utils/react';
 
 const MODAL_CLOSE_TIMEOUT = 10;
 
 describe('Modal', () => {
-  const testContainer = new ReactDOMTestContainer().createAndDestroyPerSuite();
-  const renderer = testContainer.createLegacyRenderer(ModalFactory);
+  const render = createRendererWithDriver(ModalFactory);
 
-  let testDriver;
+  let testDriver; // used for cleanup
   const createDriver = jsx => {
-    testDriver = renderer(jsx);
+    const { driver } = render(jsx);
+    testDriver = driver;
     return testDriver;
   };
 
   afterEach(async () => {
-    testContainer.unmount();
+    cleanup();
     if (testDriver !== null) {
       await eventually(() => !testDriver.isOpen() || Promise.reject(), {
         timeout: MODAL_CLOSE_TIMEOUT * 2,
@@ -127,8 +127,9 @@ describe('Modal', () => {
       it(`should wait closeTimeoutMS before removing the modal`, async () => {
         props.closeTimeoutMS = 100;
 
-        const driver = createDriver(<Modal {...props} />);
-        testContainer.renderSync(<Modal {...props} isOpen={false} />);
+        const { rerender, driver } = render(<Modal {...props} />);
+        expect(driver.isOpen()).toBeTruthy();
+        rerender(<Modal {...props} isOpen={false} />);
 
         await resolveIn(props.closeTimeoutMS - 50);
         expect(driver.isOpen()).toBeTruthy();
